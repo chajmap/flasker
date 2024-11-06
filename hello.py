@@ -26,3 +26,8 @@ def page_not_found(e):
 
 if __name__== "__main__":
     app.run(debug=True)
+
+# to update changes to GIT
+# git add .
+# git commit -am "comments added"
+# git push
