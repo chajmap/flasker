@@ -2,8 +2,15 @@
 
 {% block content %}
 
+{% for message in get_flashed_messages() %}
+<div class="alert alert-secondary alert-dismissible fade show" role="alert">
+    {{name}} – {{message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{% endfor %}
+   
 {% if name %}
-    <h1>Hello {{ name }}!! </h1>
+    <h1>Hello {{name}}!! </h1>
 {% else %}
     <h1>What's Your Name?</h1>
     <br>
