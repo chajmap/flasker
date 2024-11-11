@@ -16,7 +16,7 @@
     table-striped">
     {% for our_user in our_users %}
     <tr>
-        <td>{{ our_user.id }}. {{ our_user.name}} - 
+        <td>{{ our_user.id }}. {{ our_user.name}}  ({{our_user.institution}}) – 
             {{ our_user.email }}</td>
     </tr>
     {% endfor %}
@@ -37,6 +37,10 @@
         {{ form.email.label(class="form-label") }}
         {{ form.email(class="form-control", 
         value=name_to_update.email) }}
+        <br>
+        {{ form.institution.label(class="form-label") }}
+        {{ form.institution(class="form-control", 
+                     value=name_to_update.institution) }}
         <br>
 
         {{ form.submit(class="btn btn-secondary") }}
