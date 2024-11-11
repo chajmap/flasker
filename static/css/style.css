@@ -11,3 +11,7 @@ body {
     font-size: 40px;
     color:rgb(74, 74, 107);
 }
+
+.bg-blue {
+    background-color: rgb(31, 31, 56) !important;
+}
