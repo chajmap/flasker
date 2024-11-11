@@ -4,7 +4,7 @@
 
 {% for message in get_flashed_messages() %}
 <div class="alert alert-secondary alert-dismissible fade show" role="alert">
-    {{name}} – {{message}}
+    {{message}}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 {% endfor %}
@@ -17,7 +17,7 @@
     {% for our_user in our_users %}
     <tr>
         <td>{{ our_user.id }}. <a href="{{ url_for('update',id=our_user.id) }}">{{ our_user.name}}</a>  ({{ our_user.institution}}) - 
-            {{ our_user.email }}</td>
+            {{ our_user.email }}   |  <a href="{{ url_for('delete',id=our_user.id) }}">Delete</a></td>
     </tr>
     {% endfor %}
     </table>
@@ -49,7 +49,7 @@ table-striped">
 {% for our_user in our_users %}
 <tr>
     <td>{{ our_user.id }}. <a href="{{ url_for('update',id=our_user.id) }}">{{ our_user.name}}</a>  ({{ our_user.institution}}) - 
-        {{ our_user.email }}</td>
+        {{ our_user.email }}   |  <a href="{{ url_for('delete',id=our_user.id) }}">Delete</a></td>
 </tr>
 {% endfor %}
 </table>

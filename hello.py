@@ -59,9 +59,30 @@ def update(id):
     else:
         return render_template("update.html",
                                form=form,
-                               name_to_update=name_to_update)
+                               name_to_update=name_to_update,
+                               id=id)
 
-            
+ # Delete Database Record
+@app.route("/delete/<int:id>")
+def delete(id):
+    user_to_delete = Users.query.get_or_404(id)
+    name = None
+    form = UserForm()
+    try:
+        db.session.delete(user_to_delete)
+        db.session.commit()
+        flash("User Deleted Successfully!")
+        our_users = Users.query.order_by(Users.date_added)
+        return render_template("add_user.html", 
+            form=form,
+            name=name,
+            our_users=our_users)
+    except:            
+        flash("Error! Looks like there was a problem... Try again?")
+        return render_template("add_user.html", 
+            form=form,
+            name=name,
+            our_users=our_users)
 
 #with app.app_context():
 #        db.create_all()
