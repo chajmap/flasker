@@ -33,6 +33,10 @@
         {{ form.name(class="form-control") }}
         <br>
         
+        {{ form.username.label(class="form-label") }}
+        {{ form.username(class="form-control") }}
+        <br>
+        
         {{ form.email.label(class="form-label") }}
         {{ form.email(class="form-control") }}
         <br>
@@ -54,7 +58,7 @@
 table-striped">
 {% for our_user in our_users %}
 <tr>
-    <td>{{ our_user.id }}. <a href="{{ url_for('update',id=our_user.id) }}">{{ our_user.name}}</a>  ({{ our_user.institution}}) - 
+    <td>{{ our_user.id }}. <a href="{{ url_for('update',id=our_user.id) }}">{{ our_user.name}}</a>@{{our_user.username}} ({{ our_user.institution}}) - 
         {{ our_user.email }} – PW: {{our_user.password_hash}}  |  <a href="{{ url_for('delete',id=our_user.id) }}">Delete</a></td>
 </tr>
 {% endfor %}
