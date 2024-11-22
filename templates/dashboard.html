@@ -10,9 +10,37 @@
 {% endfor %}
    
     <h1>Dashboard</h1>
-    <br><br>
-    <p>You Are Logged In!</p>
+    <br>
+    <div class="card">
+      <div class="card-header">
+        {{current_user.name}}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Welcome to your user dashboard!</h5>
+        <p class="card-text">
+          <strong>Name:</strong>
+          {{current_user.name}}<br>
+              
+          <strong>Username:</strong>
+          {{current_user.username}}<br>
+              
+          <strong>User id:</strong>
+          {{current_user.id}}<br>
+              
+          <strong>Email:</strong>
+          {{current_user.email}}<br>
+              
+          <strong>Institution:</strong>
+          {{current_user.institution}}<br>
+              
+          <strong>Date joined:</strong>
+          {{current_user.date_added}}<br>
+        </p>
+        <a href="{{ url_for('logout') }}" class="btn btn-secondary btn-sm">Logout</a>
+      </div>
+    </div>
+    
 
-    <a href="{{ url_for('logout') }}">Log out</a>
+    <br><br>
 
 {% endblock %}

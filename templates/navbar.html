@@ -11,16 +11,24 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href=" {{ url_for('name') }}">Name</a>
+          {% if current_user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href=" {{ url_for('dashboard') }}">Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=" {{ url_for('add_user') }}">Add User</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href=" {{ url_for('login') }}">Login</a>
+            <a class="nav-link" href=" {{ url_for('logout') }}">Logout</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href=" {{ url_for('add_post') }}">Add Blog Post</a>
           </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href=" {{ url_for('add_user') }}">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href=" {{ url_for('login') }}">Login</a>
+          </li>
+          {% endif %}
           <li class="nav-item">
             <a class="nav-link" href=" {{ url_for('posts') }}">Posts</a>
           </li>

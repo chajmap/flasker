@@ -8,7 +8,9 @@
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 {% endfor %}
-   
+
+
+{% if current_user.is_authenticated %}   
 <h1>Add Blog Post...</h1>
 <br>
 <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
@@ -32,5 +34,13 @@
         {{ form.submit(class="btn btn-secondary") }}
     </form>
     </div>
+
+{% else %}
+<h2>Must be Logged In...</h2>
+<p>Sorry, you must be logged in to access this page :(</p>
+
+<a href="{{ url_for('login') }}" class="btn btn-secondary">Login Here</a>
+
+{% endif %}
 
 {% endblock %}
